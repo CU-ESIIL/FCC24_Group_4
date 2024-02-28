@@ -12,7 +12,7 @@ Welcome to the **[Your Team Name]** repository, an integral part of ESIIL and Ea
 ## Group Members
 - Member 1: Elizabeth Buhr
 - Member 2: Brief description
-- ...
+- Member 3: Hutch Tyree
 - [Link to more detailed bios or profiles if available and desired.]
 
 ## Code Repository Structure
