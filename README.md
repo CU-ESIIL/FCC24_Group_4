@@ -11,10 +11,9 @@ Our project aims to answer the question: where are sawmills in Colorado and Wyom
 
 ## Group Members
 - Member 1: Elizabeth Buhr is a field manager and junior programmer in the Forest Futures Lab at Cary Institute of Ecosystem Studies. Her work focuses on post-fire forest regeneration in the boreal region of Interior Alaska.
-- Member 2: Brief description
+- Member 2: Max 
 - Member 3: Hutch Tyree
 - Member 4: Kit Lewers, University of Colorado Boulder
-- [Link to more detailed bios or profiles if available and desired.]
 
 ## Code Repository Structure
 - **Data Processing**: Scripts for cleaning, merging, and managing datasets.
@@ -23,16 +22,6 @@ Our project aims to answer the question: where are sawmills in Colorado and Wyom
 
 ## Meeting Notes and Agendas
 - Regular updates to keep all group members informed and engaged with the project's progress and direction.
-
-## Contributing to This Repository
-- Contributions from all group members are welcome.
-- Please adhere to these guidelines:
-  - Ensure commits have clear and concise messages.
-  - Document major changes in the meeting notes.
-  - Review and merge changes through pull requests for oversight.
-
-## Getting Help
-- If you encounter any issues or have questions, please refer to the [ESIIL Support Page](https://esiil-support-page-url/) or contact the repository maintainers directly.
 
 ## Customize Your Repository
 - **Edit This Readme**: Update with information specific to your project.
