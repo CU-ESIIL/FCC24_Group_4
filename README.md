@@ -6,7 +6,7 @@ Welcome to the repository for team 4, **4est**, part of ESIIL and Earth Lab's Fo
 Our project aims to answer the question: where are sawmills in Colorado and Wyoming? Addressing this question had two components: 1) identifying the locations of known sawmills in Colorado and Wyoming by integrating and verifying different existing datasets and adding them to Open Street Map (OSM) for public access (https://taginfo.openstreetmap.org/tags/craft=sawmill#map), and b) testing different machine learning algorithms' abilities to detect sawmills. 
 
 ## Documentation
-- Access detailed documentation on our [GitHub Pages site](https://your-gh-pages-url/).
+- Access detailed documentation on our [GitHub Pages site](https://cu-esiil.github.io/FCC24_Group_4/).
 
 
 ## Group Members
