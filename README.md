@@ -1,4 +1,4 @@
-# [Team 4]
+# Team 4: 4est
 
 Welcome to the repository for team 4, **4est**, part of ESIIL and Earth Lab's Forest Carbon Codefest. This repository is the central hub for our team, encompassing our project overview, team member information, codebase, and more.
 
