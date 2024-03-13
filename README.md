@@ -10,7 +10,7 @@ Welcome to the 4est repository, an integral part of ESIIL and Earth Lab's Forest
 
 
 ## Group Members
-- Member 1: Elizabeth Buhr
+- Member 1: Elizabeth Buhr is a field manager and junior programmer in the Forest Futures Lab at Cary Institute of Ecosystem Studies. Her work focuses on post-fire forest regeneration in the boreal region of Interior Alaska.
 - Member 2: Brief description
 - Member 3: Hutch Tyree
 - Member 4: Kit Lewers, University of Colorado Boulder
