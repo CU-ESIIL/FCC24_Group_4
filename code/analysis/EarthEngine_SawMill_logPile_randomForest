@@ -1,0 +1,127 @@
+(This text file was created in Cyverse, but was failing to push to repository)
+
+
+This code is in JavaScript syntax which uses NAIP and Landsat imagery to train a random forest classifier to identify log piles associated with Saw Mills
+
+Here is where you can access the training data for log piles: https://code.earthengine.google.com/?asset=projects/sawmillclassification/assets/log_pile
+
+The code is as follows; full disclosure, it did not work due to user memory limit exceeded when using scale less than 2 meters
+
+var pointsCollection = ee.FeatureCollection(Mills1)
+
+
+
+// Define a function of buffering and bounding      
+var buffer_func = function(feature) {
+    var buffer_size = feature.buffer(300);  // buffer radius, half your box width in m
+    var buffer_box = buffer_size.bounds(); // Draw a bounding box around the circle
+       return(buffer_box); // Return the bounding box
+      };
+
+// Apply function to see buffer box
+var Buffered_mills = pointsCollection.map(buffer_func);
+
+var Test_mills = Buffered_mills.filterMetadata('Test', 'equals', 'y');
+
+var Validate_mills = Buffered_mills.filterMetadata('Test', 'equals', 'n');
+
+
+Map.addLayer(Validate_mills, {color: "blue"}, 'Validate mills')
+Map.addLayer(Test_mills, {color: "yellow"}, 'test mills')
+
+var Validate_roi = Validate_mills.geometry()
+Map.addLayer(Validate_roi,{},'validate')
+
+var Mills_roi = Buffered_mills.geometry()
+
+
+
+
+//////////////////      NAIP     /////////////////////////////
+
+// Load the NAIP imagery collection
+var naipCollection = ee.ImageCollection('USDA/NAIP/DOQQ')
+                      .filterBounds(Buffered_mills)
+                      .filterDate('2021-01-01', '2022-12-31'); // Adjust date range as needed
+
+
+
+var calcNDVI = function(image){
+  var ndvi = image.normalizedDifference(['N','R']).rename('NDVI')
+  return image.addBands(ndvi)
+  
+}
+
+var NAIP_NDVI = naipCollection.map(calcNDVI)
+
+
+
+var Mosaic = NAIP_NDVI.mosaic()
+print(Mosaic)
+
+var Mosaic_v = NAIP_NDVI.mosaic().clip(Validate_mills)
+
+var trainingData = ee.FeatureCollection(Log_notLog);
+
+var bands = ['R','G','B','N','NDVI'];
+
+Map.addLayer(Mosaic,{},'mosaic')
+
+var training = Mosaic.sampleRegions({
+  collection: trainingData,
+  properties: ['Log'],
+  scale: .6
+});
+
+// Make a Random Forest classifier and train it. 
+var classifier = ee.Classifier.smileRandomForest(10).train({ 
+  features: training, 
+  classProperty: 'Log', 
+  inputProperties: bands
+});
+
+// Classify the input imagery. 
+var classified = Mosaic.clip(Validate_roi).classify(classifier); // Define a palette for the Land Use classification. 
+
+
+print(classified)
+// Display the classification result and the input image.
+Map.addLayer(classified, {palette:['yellow','blue']}, 'Land Use Classification')
+
+
+Map.addLayer(Log_notLog, {},'logs')
+
+
+
+
+// /////////////////////      Landsat       /////////////////////////
+// // Load the Landsat 8 scaled radiance image collection. 
+
+// var landsatCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1') .filterDate('2021-01-01', '2022-12-31').filterBounds(Buffered_mills);
+
+
+// // Make a cloud-free composite. 
+
+// var composite = ee.Algorithms.Landsat.simpleComposite({collection: landsatCollection, asFloat: true});
+// Map.addLayer(composite, {},'landsat')
+
+// var bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
+
+// var training = composite.select(bands).sampleRegions({
+//   collection: trainingData,
+//   properties: ['Log'],
+//   scale: 5
+// });
+
+// // Make a Random Forest classifier and train it. 
+// var classifier = ee.Classifier.smileRandomForest(10).train({ 
+//   features: training, 
+//   classProperty: 'Log', 
+//   inputProperties: bands
+// });
+
+// // Classify the input imagery. 
+// var classified = composite.select(bands).clip(Validate_roi).classify(classifier); // Define a palette for the Land Use classification. 
+
+// // Display the classification result and the input image.
+// Map.addLayer(classified, {palette: ['red','blue']}, 'Land Use Classification2')
