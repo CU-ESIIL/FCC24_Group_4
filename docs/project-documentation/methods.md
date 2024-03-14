@@ -6,6 +6,7 @@
 - [Wyoming Wood Products Facilities](https://www.arcgis.com/home/item.html?id=e4dd25c0b5904a86b8a6ea0a2c4f55e4): a list of companies in Wyoming that generate wood products, derived from FIA survey data.
 - [OpenStreetMap](https://www.openstreetmap.org/): crowd-sourced spatial data on roads, buildings, etc.
 - [National Agriculture Imagery Program](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-aerial-photography-national-agriculture-imagery-program-naip): USDA high resolution aerial imagery.
+- [Monitoring Trends in Burn Severity (MTBS)](https://www.mtbs.gov/): fire boundary data
 
 ## Data Processing Steps
 
@@ -19,7 +20,6 @@ Each mill was categorized as having visible logs/boards or a sawdust pile, and t
 Additionally we geocoded addresses to get spatial coordinates of mill locations.
 
 ## Data Analysis
-Describe steps taken to analyze data and resulting files in team data store file structure.
 
 ### segment_geospatial
 Using the samgeo package in Python (https://samgeo.gishub.org/) we tested three methods for detection of log piles. We envision this to be a quick way to distinguish area of log piles at a sawmill, potentially serving as a metric of production. We tested these methods on one site.
@@ -30,11 +30,20 @@ We then tested input prompting, which entailed dropping a point on log piles and
 
 Finally we tested the automatic mask generator (https://samgeo.gishub.org/examples/automatic_mask_generator/) which distinguished all the unique options in the AOI. This performed pretty well, but did not pick up as many log piles as the text prompting. 
 
+### Mapping disturbances within mill isochrones
+
+To understand how mills might be impacted by disturbance we quantified overlap of mill isochrones (areas accessible if one could haul wood up to 62 miles) and wildfires (from the MTBS data). 
+Mill isochrones were computed using the `mapboxapi` R package. 
+While wood can be hauled distances greater than 62 miles, the API restricts the maximum travel distance to 100 km (~62 miles). 
+Once we overlaid isochrones and fire, we computed the fraction of isochrone that had burned for each mill. 
+
 ## Visualizations
-Describe visualizations created and any specialized techniques or libraries that users should be aware of.
+
+We've collected visualizations in the slide presentation.
 
 ## Conclusions
-Summary of the full workflow and its outcomes. Reflect on the methods used.
 
-## References
-Citations of tools, data sources, and other references used.
+We have a map of confirmed saw mills that could possibly be monitored using remote sensing data. 
+Segmentation of key state variables (area covered by logs, wood products, and sawdust) seems possible, but additional work would be needed to generate reliable estimates. 
+Mill detection and monitoring may be an underutilized tool that could support applications related to natural climate solutions, natural resource management, and finance. 
+
