@@ -11,7 +11,7 @@ Our project aims to answer the question: where are sawmills in Colorado and Wyom
 
 ## Group Members
 - Member 1: Elizabeth Buhr is a field manager and junior programmer in the Forest Futures Lab at Cary Institute of Ecosystem Studies. Her work focuses on post-fire forest regeneration in the boreal region of Interior Alaska.
-- Member 2: Max 
+- Member 2: Max Joseph is a data scientist at Planet Labs who estimates forest structure with remote sensing and machine learning. 
 - Member 3: Hutch Tyree
 - Member 4: Kit Lewers, University of Colorado Boulder
 
