@@ -61,7 +61,7 @@ We employed a Naive Bayes classifier, a probabilistic model that assumes indepen
 Finally, the classified image is visualized on the map, with pixels colored according to their assigned class. This visualization helps in assessing the classifier's performance and understanding the spatial distribution of the identified features (log piles) within the imagery.
 
 #### Random Forest Classification
-We performed a classification on the NAIP imagery from the other 6 sawmill sites. This code was able to run and create an output, but only when performed at a low resolution. This low resolution is likely unable to identify the log piles and any unique spectral signature. When running at a higher resolution (<2 meters), it returned an error of "user memory limit exceeded." Future work should include a more robust dataset of log and non log training data, and be performed in the cloud to utilize higher computing power and memory!
+Using the guidelines and syntax from google earth engine (https://developers.google.com/earth-engine/guides/classification), we attempted to do a random forest classification on training data of sawmill log piles. We performed a classification on the NAIP imagery from the 6 sawmill sites that weren't used for training data. This code was able to run and create an output, but only when performed at a low resolution. This low resolution is likely unable to identify the log piles and any unique spectral signature. When running at a higher resolution (<2 meters), it returned an error of "user memory limit exceeded." Future work should include a more robust dataset of log and non log training data, and be performed in the cloud to utilize higher computing power and memory!
 
 ## Visualizations
 
