@@ -16,7 +16,7 @@ Our project aims to answer the question: where are sawmills in Colorado and Wyom
 - Member 4: Kit Lewers, University of Colorado Boulder
 
 ## Code Repository Structure
-- **Data Processing**: Scripts for cleaning, merging, and managing datasets.
+- **Data Processing**: "OSM points.ipynb" searched the Open Street Maps (OSM) database for entries matching "craft=sawmill" or "industrial=sawmill" in Colorado and Wyoming.
 - **Analysis Code**: Scripts for data analysis, statistical modeling, etc.
 - **Visualization**: Code for creating figures, charts, and interactive visualizations.
 
