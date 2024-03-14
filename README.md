@@ -13,7 +13,7 @@ Our project aims to answer the question: where are sawmills in Colorado and Wyom
 - Member 1: Elizabeth Buhr is a field manager and junior programmer in the Forest Futures Lab at Cary Institute of Ecosystem Studies. Her work focuses on post-fire forest regeneration in the boreal region of Interior Alaska.
 - Member 2: Max Joseph is a data scientist at Planet Labs who estimates forest structure with remote sensing and machine learning. 
 - Member 3: Hutch Tyree
-- Member 4: Kit Lewers, University of Colorado Boulder
+- Member 4: Kit Lewers is PhD Student in Information Science and Interdisciplinary Quantitative Biology at University of Colorado Boulder. Her research focuses on how information overload impacts institutions grounded in big data and the affects of disciplinary silos on open science and collaboration.
 
 ## Code Repository Structure
 - **Data Processing**: "OSM points.ipynb" searches the Open Street Maps (OSM) database for entries matching "craft=sawmill" or "industrial=sawmill" in Colorado and Wyoming.
