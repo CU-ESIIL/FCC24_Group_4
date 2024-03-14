@@ -65,7 +65,12 @@ Finally, the classified image is visualized on the map, with pixels colored acco
 
 ## Visualizations
 
-We've collected visualizations in the slide presentation.
+We've collected visualizations in the slide presentation. Below are a few visualizations of our main methods:
+
+![OpenStreetMap](https://github.com/CU-ESIIL/FCC24_Group_4/assets/111799296/639b8bd9-8bb1-4a16-ab20-d2dabd2047ea)
+Image 1: Contributing sawmill locations in Colorado and Wyoming to Open Street Map. 
+
+
 
 ## Conclusions
 
