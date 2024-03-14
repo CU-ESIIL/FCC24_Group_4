@@ -15,3 +15,5 @@
 ### We found sawmills that were unmapped on Open Street Map (OSM) and added them to OSM. We used the samgeo package in Python to test different methods (text prompts, input prompts, and automatic mask generator) of identifying wood piles. 
 
 ## Day 3: March 14, 2024 - CU Boulder
+
+### We finalized the project repo and presentation. 
