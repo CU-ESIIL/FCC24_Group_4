@@ -6,7 +6,9 @@
 
 ## Day 1: March 12, 2024 - CU Boulder
 
-### Selected scientific question: Where are sawmills? What can we do using this data?
+### First, we all introducted ourselves, shared why we were excited to participate in the Codefest, and established team norms. 
+### Then we brainstormed main different directions for our project. 
+### We settled on a project with four main goals: 1) identify the locations of known sawmills in Colorado and Wyoming by integrating and verifying different existing datasets, 2) add the sawmills to Open Street Map (OSM) for public access, and c) test different machine learning algorithms' abilities to detect sawmills, and d) identify fire disturbance in areas of sawmill reachability. The first two goals were our targets, and the latter two were our stretch goals.
 
 ## Day 2: March 13, 2024 - CU Boulder
 
