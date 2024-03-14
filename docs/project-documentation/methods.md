@@ -37,10 +37,10 @@ Mill isochrones were computed using the `mapboxapi` R package.
 While wood can be hauled distances greater than 62 miles, the API restricts the maximum travel distance to 100 km (~62 miles). 
 Once we overlaid isochrones and fire, we computed the fraction of isochrone that had burned for each mill. 
 
-### Naive Bayes Classification in Google Earth Engine (GEE)
+### Classification in Google Earth Engine (GEE)
 1. Feature Collection and Labeling
 
-Create a `FeatureCollection` to represent your area of interest, specifically areas containing "log piles." This collection carries out the supervised learning by providingg labeled examples that the classifier uses to learn the characteristics of different classes. Each feature within your collection is labeled according to its class (e.g., log piles are labeled with a class identifier), enabling the classifier to distinguish between the features you're interested in and the background.
+Create a `FeatureCollection` to represent your area of interest, specifically areas containing "log piles" (https://github.com/CU-ESIIL/FCC24_Group_4/assets/161641043/e1b42e37-8505-4758-891b-30d332b37e7c). This collection carries out the supervised learning by providing labeled examples that the classifier uses to learn the characteristics of different classes. Each feature within your collection is labeled according to its class (e.g., log piles are labeled with a class identifier), enabling the classifier to distinguish between the features you're interested in and the background.
 
 2. Import NAIP Imagery
 
@@ -54,14 +54,14 @@ Filter the NAIP imagery based on geographic bounds and date range, ensuring that
 
 The training data is prepared by sampling the NAIP imagery at the locations of your labeled features. This step extracts the spectral information from the selected bands at each labeled location, creating a dataset that associates this spectral information with the known class labels. This dataset forms the basis of the training phase, where the classifier learns the relationship between spectral signatures and class labels.
 
-5. Naive Bayes Classification
+#### Naive Bayes Classification
 
-You've employed the Naive Bayes classifier, a probabilistic model that assumes independence between the features (in this case, the spectral bands). It works by calculating the probability of each pixel belonging to a given class based on the spectral information and the patterns learned during training. The pixel is then classified into the class with the highest probability.
-
-6. Result Visualization
+We employed a Naive Bayes classifier, a probabilistic model that assumes independence between the features (in this case, the spectral bands). It works by calculating the probability of each pixel belonging to a given class based on the spectral information and the patterns learned during training. The pixel is then classified into the class with the highest probability.
 
 Finally, the classified image is visualized on the map, with pixels colored according to their assigned class. This visualization helps in assessing the classifier's performance and understanding the spatial distribution of the identified features (log piles) within the imagery.
 
+#### Random Forest Classification
+We performed a classification on the NAIP imagery from the other 6 sawmill sites. This code was able to run and create an output, but only when performed at a low resolution. This low resolution is likely unable to identify the log piles and any unique spectral signature. When running at a higher resolution (<2 meters), it returned an error of "user memory limit exceeded." Future work should include a more robust dataset of log and non log training data, and be performed in the cloud to utilize higher computing power and memory!
 
 ## Visualizations
 
