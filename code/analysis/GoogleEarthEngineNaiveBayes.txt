@@ -1,2 +1,43 @@
-This code is in JavaScript syntax, code is as follows:
+This code is in JavaScript syntax
+
+Here is where you can access the training data for log piles: https://code.earthengine.google.com/?asset=projects/sawmillclassification/assets/log_pile
+
+The code is as follows; full disclosure, it did not work:
+
+var logPolygons = Log_piles
+
+var labeledLog_piles = logPolygons.map(function(feature) {
+  return feature.set('class', 1);
+});
+
+// Adjusting for NAIP imagery
+var naipImage = ee.Image(ee.ImageCollection('USDA/NAIP/DOQQ')
+  .filterBounds(logPolygons)
+  .filterDate('2018-01-01', '2022-12-31')
+  .mosaic()) // Create a mosaic of the images
+  .select(['R', 'G', 'B', 'N']); // Assuming standard NAIP band names; adjust if necessary
+
+var training = naipImage.sampleRegions({
+  collection: labeledLog_piles,
+  properties: ['class'],
+  scale: .6 // Adjust based on your specific needs and computational constraints
+});
+
+var naiveBayesClassifier = ee.Classifier.smileNaiveBayes().train({
+  features: training,
+  classProperty: 'class',
+  inputProperties: naipImage.bandNames()
+});
+
+var classified = naipImage.classify(naiveBayesClassifier);
+
+// Display the classification result
+Map.addLayer(classified, {min: 0, max: 1, palette: ['red', 'white']}, 'Classified Image');
+
+
+var naipImageCollection = ee.ImageCollection('USDA/NAIP/DOQQ')
+  .filterBounds(logPolygons)
+  .filterDate('2018-01-01', '2022-12-31');
+  
+print("NAIP ImageCollection size:", naipImageCollection.size());
 
