@@ -70,6 +70,12 @@ We've collected visualizations in the slide presentation. Below are a few visual
 ![OpenStreetMap](https://github.com/CU-ESIIL/FCC24_Group_4/assets/111799296/639b8bd9-8bb1-4a16-ab20-d2dabd2047ea)
 Image 1: Contributing sawmill locations in Colorado and Wyoming to Open Street Map. 
 
+![SamAutomaticMaskGenerator](https://github.com/CU-ESIIL/FCC24_Group_4/assets/111799296/c2300a74-73ba-42a0-b734-c7a72d858790)
+
+![GoogleEarthEngineClassification](https://github.com/CU-ESIIL/FCC24_Group_4/assets/111799296/f59e5a09-1439-43a4-9d24-7f6324cc5e7d)
+
+![NaiveBayes](https://github.com/CU-ESIIL/FCC24_Group_4/assets/111799296/8aa7788f-334d-4995-8f4c-26c022ae472a)
+
 
 
 ## Conclusions
