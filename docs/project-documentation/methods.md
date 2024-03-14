@@ -1,10 +1,22 @@
 # Project methods overview
 
 ## Data Sources
-List and describe data sources used, including links to cloud-optimized sources. Highlight permissions and compliance with data ownership guidelines.
+
+- [Colorado Forest Products Database](https://csfs.colostate.edu/colorado-forest-products-database/): a list of companies that make wood products, which includes some mills.
+- [Wyoming Wood Products Facilities](https://www.arcgis.com/home/item.html?id=e4dd25c0b5904a86b8a6ea0a2c4f55e4): a list of companies in Wyoming that generate wood products, derived from FIA survey data.
+- [OpenStreetMap](https://www.openstreetmap.org/): crowd-sourced spatial data on roads, buildings, etc.
+- [National Agriculture Imagery Program](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-aerial-photography-national-agriculture-imagery-program-naip): USDA high resolution aerial imagery.
 
 ## Data Processing Steps
-Describe data processing steps taken, the order of scripts, etc.
+
+### Constructing a mill database
+
+We mapped mills by first collecting three sets of candidate mills from OpenStreetMap, the Colorado Forest Products Database, and the Wyoming Wood Products Facilities database.
+For every candidate mill, we used Google Maps to search for the address, then visually interpreted imagery from the Google Satellite basemap layer to detect evidence of milling.
+Our criteria were 1) visible stacks of logs and/or boards, or 2) visible sawdust piles. 
+While these criteria would exclude small operations or those that are entirely indoors, we decided to accept this as a limitation as our eventual goal was to assess the use of remote sensing data for monitoring mill activity. 
+Each mill was categorized as having visible logs/boards or a sawdust pile, and this information was entered into a shared spreadsheet. 
+Additionally we geocoded addresses to get spatial coordinates of mill locations.
 
 ## Data Analysis
 Describe steps taken to analyze data and resulting files in team data store file structure.
