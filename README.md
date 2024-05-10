@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/764820791.svg)](https://zenodo.org/doi/10.5281/zenodo.11168344)
+
 # Team 4: 4est
 
 Welcome to the repository for team 4, **4est**, part of ESIIL and Earth Lab's Forest Carbon Codefest. This repository is the central hub for our team, encompassing our project overview, team member information, codebase, and more.
